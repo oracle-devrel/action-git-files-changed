@@ -1,0 +1,27 @@
+# Copyright (c) 2021 Oracle and/or its affiliates.
+
+# action.yml
+name: 'Git Files Changed'
+description: 'Look at the files changed in git commits.'
+inputs:
+  pull_url:
+    description: 'The URL of the pull request.  Typically ${{ github.event.pull_request.url }}.'
+    required: true
+outputs:
+  all_files_changed:
+    description: 'All of the changed files.'
+  added_files:
+    description: 'Only files added.'
+  copied_files:
+    description: 'Only files copied.'
+  deleted_files:
+    description: 'Only files deleted.'
+  modified_files:
+    description: 'Only files modified.'
+  renamed_files:
+    description: 'Only files renamed.'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.pull_url }}
