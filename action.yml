@@ -5,7 +5,7 @@ name: 'Git Files Changed'
 description: 'Look at the files changed in git commits.'
 inputs:
   pull_url:
-    description: 'The URL of the pull request.  Typically ${{ github.event.pull_request.url }}.'
+    description: 'The URL of the pull request.'
     required: true
 outputs:
   all_files_changed:
